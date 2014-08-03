@@ -26,19 +26,14 @@ public class TwilioSmsApiServiceImpl implements TwilioSmsApiService {
 
     private static final Logger LOG = Logger.getLogger(TwilioSmsApiServiceImpl.class.getName());
 
-    @Inject
-    private TwilioSmsApiConfigurationService smsApiConfigurationService;
+    private final TwilioSmsApiConfigurationService smsApiConfigurationService;
 
     /**
-     * For JSE environment.
-     *
      * @param smsApiConfigurationService
      */
-    public TwilioSmsApiServiceImpl(TwilioSmsApiConfigurationService smsApiConfigurationService) {
+    @Inject
+    public TwilioSmsApiServiceImpl(final TwilioSmsApiConfigurationService smsApiConfigurationService) {
         this.smsApiConfigurationService = smsApiConfigurationService;
-    }
-
-    public TwilioSmsApiServiceImpl() {
     }
 
     @Override
