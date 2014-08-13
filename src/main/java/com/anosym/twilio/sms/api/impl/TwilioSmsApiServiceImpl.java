@@ -64,8 +64,11 @@ public class TwilioSmsApiServiceImpl implements TwilioSmsApiService {
             LOG.log(Level.INFO, "Sent SMS: {0}", number + ", " + msg + ", " + message);
             return new SmsResult(true, message.getStatus());
         } catch (TwilioRestException e) {
+            LOG.log(Level.SEVERE,
+                    "Twilio SMS Error Code: {0}, Error Message: {1}, More Information: {2}",
+                    new Object[]{e.getErrorCode(), e.getErrorMessage(), e.getMoreInfo()});
             LOG.log(Level.SEVERE, "Send SMS FAIL: " + number + ", " + msg + ", " + message, e);
-            return new SmsResult(false, e.getErrorMessage() + ": " + e.getMoreInfo());
+            return new SmsResult(false, "Technical error sending sms");
         }
     }
 }
