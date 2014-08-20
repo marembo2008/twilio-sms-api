@@ -17,4 +17,10 @@ public interface TwilioSmsApiConfigurationService {
 
     String getFromPhoneNumber();
 
+    /**
+     * If true, we always return transaction as success.
+     *
+     * @return
+     */
+    boolean isSimulatesuccess();
 }
