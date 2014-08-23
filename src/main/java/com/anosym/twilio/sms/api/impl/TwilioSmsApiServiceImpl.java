@@ -44,7 +44,9 @@ public class TwilioSmsApiServiceImpl implements TwilioSmsApiService {
     @Override
     public SmsResult sendSmsForResult(String number, String msg) throws TwilioRestException {
         if (this.smsApiConfigurationService.isSimulatesuccess()) {
-            return new SmsResult(true, "Successfully sent the following sms: " + msg);
+            final String info = "Successfully sent the following sms: " + msg;
+            LOG.info(info);
+            return new SmsResult(true, info);
         }
         /**
          * The number must start with +
