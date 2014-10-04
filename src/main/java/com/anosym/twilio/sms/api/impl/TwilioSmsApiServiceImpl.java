@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.anosym.twilio.sms.api.impl;
 
 import com.anosym.twilio.sms.api.SmsResult;
@@ -43,7 +38,7 @@ public class TwilioSmsApiServiceImpl implements TwilioSmsApiService {
 
     @Override
     public SmsResult sendSmsForResult(String number, String msg) throws TwilioRestException {
-        if (this.smsApiConfigurationService.isSimulatesuccess()) {
+        if (this.smsApiConfigurationService.isSimulateSuccess()) {
             final String info = "Successfully sent the following sms: " + msg;
             LOG.info(info);
             return new SmsResult(true, info);
